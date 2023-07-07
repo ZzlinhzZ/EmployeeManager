@@ -6,19 +6,7 @@
     <title>登録</title>
 </head>
 <body>
-    <?php 
-        if (isset($_POST['登録'])) {
-            $社員番号 = $_POST['txt社員番号'];
-            $氏名 = $_POST['txt氏名'];
-            $部署 = $_POST['部署'];
-            $性別 = $_POST['性別'];
-
-            require_once("conectdb.php");
-            $sql = ("INSERT INTO 社員管理システム(社員番号,氏名,部署,性別) VALUES ($社員番号, $氏名,$部署,$性別)");
-            $stmt.exec($sql);
-        }
-    ?>
-    <form>
+    <form action="" method="post">
         <table align="center">
             <tr>
                 <th>社員番号 </th>
@@ -45,9 +33,25 @@
             </tr>
             <tr>
                 <th><a href="index.php">一覧</a></th>
-                <th><input type="submit" value="登録"/></th>
+                <th><input type="submit" value="登録" name="登録"/></th>
             </tr>
         </table>
     </form>
+    <?php 
+        require_once("conectdb.php");
+        if (isset($_POST['登録'])) {
+            $社員番号 = $_POST['txt社員番号'];
+            $氏名 = $_POST['txt氏名'];
+            $部署 = $_POST['部署'];
+            $性別 = $_POST['性別'];   
+            $sql = "INSERT INTO `社員管理システム` (`ID`, `社員番号`, `氏名`, `部署`, `性別`) VALUES (NULL, '$社員番号', '$氏名', '$部署', '$性別')";
+            if ($conn->exec($sql)) {
+                echo "<script>alert('add a new employee successful!')</script>";
+            }else {
+                echo "<script>alert('some thing error - try again!')</script>";
+            }; 
+            
+        }
+    ?>
 </body>
 </html>
