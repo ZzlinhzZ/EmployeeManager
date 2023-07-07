@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2023 at 10:40 AM
+-- Generation Time: Jul 07, 2023 at 11:49 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,8 +32,18 @@ CREATE TABLE `社員管理システム` (
   `社員番号` text NOT NULL,
   `氏名` text NOT NULL,
   `部署` text NOT NULL,
-  `性別` tinyint(1) DEFAULT NULL
+  `性別` tinytext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `社員管理システム`
+--
+
+INSERT INTO `社員管理システム` (`ID`, `社員番号`, `氏名`, `部署`, `性別`) VALUES
+(6, 'b', 'b', 'C', '男'),
+(7, 'm', 'm', 'C', '男'),
+(8, 'aw', 's', 'B', '女'),
+(10, 'i009', 'linh', 'B', '男');
 
 --
 -- Indexes for dumped tables
@@ -53,7 +63,7 @@ ALTER TABLE `社員管理システム`
 -- AUTO_INCREMENT for table `社員管理システム`
 --
 ALTER TABLE `社員管理システム`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
