@@ -74,7 +74,7 @@
             $性別 = $_POST['性別'];   
             $sql = "UPDATE `社員管理システム` SET `社員番号` = '$社員番号', `氏名` = '$氏名', `部署` = '$部署', `性別` = '$性別' WHERE `社員管理システム`.`ID` = $id";
             if ($conn->exec($sql)) {
-                echo "<script>alert('add a new employee successful!')</script>";
+                echo "<script>alert('change successful!')</script>";
                 header("location: index.php");
             }else {
                 echo "<script>alert('some thing error - try again!')</script>";
